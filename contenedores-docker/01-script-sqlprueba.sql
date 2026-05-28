@@ -41,3 +41,27 @@ SET nombre = 'MONICO'
 WHERE id = 1; 
 
 
+
+
+CREATE DATABASE pruebaAtributos;
+
+CREATE TABLE alumno(
+	num_alumno INT NOT NULL PRIMARY KEY,
+	nombre VARCHAR(50) NOT NULL,
+	apellido_1 VARCHAR(30) NOT NULL,
+	apellido_2 VARCHAR(30) NULL,
+	fecha_naci DATE NOT NULL);
+	
+	INSERT INTO alumno 
+	VALUES (1, 'Angel Patricio','Perez','Hernandez','1998-09-08');
+	INSERT INTO alumno 
+	VALUES (2, 'Ian Uriel','Rizo',NULL,'2007-07-25');
+	
+	SELECT * FROM alumno;
+	
+	SELECT nombre, apellido_1,apellido_2, 
+		YEAR(fecha_naci),
+		MONTH(fecha_naci), 
+		DAY(fecha_naci),
+		(DATEDIFF(year, fecha_naci, GETDATE())) AS edad
+	FROM alumno;
