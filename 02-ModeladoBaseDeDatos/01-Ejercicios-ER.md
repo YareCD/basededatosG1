@@ -113,3 +113,119 @@ Una empresa encargada de realizar venta de productos.
     - Cantidad 
     - Precio de venta
 
+![Empresa](../img/E-R/Ej4-E-R.jpg)
+
+# 5. EJERCICIO 5
+
+Una empresa administra la información de sus empleados, departamentos, proyectos y dependientes.
+
+> De cada empleado se almacena:
+- Número de Seguro Social (SSN)
+- Nombre (Nombre y Apellido)
+- Dirección
+- Fecha de nacimiento
+- Sexo
+- Salario
+
+> De cada departamento se almacena:
+- Número del departamento
+- Nombre
+- Una o varias ubicaciones
+
+> La empresa administra proyectos de los cuales registra:
+- Número del proyecto
+- Nombre
+- Ubicación
+
+> También registra los dependientes de cada empleado, almacenando:
+- Nombre
+- Sexo
+- Fecha de nacimiento
+- Parentesco
+
+> Además, la empresa registra:
+- La fecha en que un empleado comienza a administrar un departamento.
+- Las horas que un empleado trabaja en un proyecto.
+
+> Reglas del negocio
+
+1. Un empleado trabaja para un solo departamento.
+2. Un departamento puede tener muchos empleados.
+3. Cada departamento es administrado por un solo empleado.
+4. Un empleado puede administrar como máximo un departamento.
+5. Se registra la fecha en que inicia la administración del departamento.
+6. Un departamento controla uno o varios proyectos.
+7. Cada proyecto pertenece a un solo departamento.
+8. Un empleado puede trabajar en varios proyectos.
+9. Un proyecto puede tener asignados varios empleados.
+10. Para cada asignación de un empleado a un proyecto se registran las horas trabajadas.
+11. Un empleado puede tener varios dependientes.
+12. Cada dependiente pertenece únicamente a un empleado.
+13. Un dependiente no puede existir sin un empleado asociado.
+14. Un departamento puede existir antes de tener empleados asignados.
+15. Un proyecto debe estar controlado por un departamento.
+
+![Company](../img/E-R/Ej5-ER.jpg)
+
+# 6. EJERCICIO 6-7
+
+Una institución educativa administra la información de alumnos, profesores, materias, departamentos, proyectos, credenciales y dependientes.
+
+> De cada alumno se almacena:
+- Matrícula
+- Nombre (Nombre, Apellido Paterno y Apellido Materno)
+- Fecha de nacimiento
+- Correo electrónico
+- Uno o varios teléfonos
+
+> De cada materia se registra:
+- Clave de la materia
+- Nombre de la materia
+- Créditos
+- Total de materias (atributo derivado)
+
+> De cada profesor se almacena:
+- Número de profesor
+- Nombre (Nombre, Apellido Paterno y Apellido Materno)
+
+> De cada departamento se registra:
+- Número de departamento
+- Nombre
+- Edificio
+
+> De cada proyecto se almacena:
+- Número del proyecto
+- Nombre del proyecto
+- Presupuesto
+
+> Cada alumno posee una credencial.
+
+> También se registran los dependientes de los profesores, almacenando:
+- Nombre
+- Fecha de nacimiento
+- Parentesco
+
+> Además, el sistema registra:
+- La fecha de inscripción y la calificación final de un alumno en una materia.
+- La fecha de inicio y el rol de un profesor en un proyecto.
+
+> Reglas del negocio
+
+1. Un alumno posee una sola credencial.
+2. Una credencial pertenece únicamente a un alumno.
+3. Un alumno puede inscribirse en varias materias.
+4. Una materia puede tener inscritos varios alumnos.
+5. Por cada inscripción se registra la fecha de inscripción y la calificación final.
+6. Un profesor imparte varias materias.
+7. Cada materia es impartida por un solo profesor.
+8. Un profesor puede participar en varios proyectos.
+9. Un proyecto puede contar con varios profesores.
+10. Por cada participación se registra la fecha de inicio y el rol del profesor.
+11. Un profesor pertenece a un solo departamento.
+12. Un departamento puede tener varios profesores.
+13. Un profesor puede tener varios dependientes.
+14. Cada dependiente pertenece únicamente a un profesor.
+15. Un dependiente no puede existir sin un profesor asociado.
+16. Un alumno puede tener registrados uno o varios números telefónicos.
+17. El total de materias es un atributo derivado calculado a partir de la información almacenada.
+![Escuela](../img/E-R/Eje6-7_ER.jpg)
