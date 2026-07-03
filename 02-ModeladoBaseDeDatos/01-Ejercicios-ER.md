@@ -54,7 +54,7 @@ Se debe realizar lo siguiente:
 - Determinar la cardinalidad
 - Determinar la participación
 
-![Escuela](../img/E-R/Ejercicio%202.drawio.png)
+![Escuela](../img/E-R/Eje2_ER.jpg)
 
 # 3. Ejercicio 3
  
