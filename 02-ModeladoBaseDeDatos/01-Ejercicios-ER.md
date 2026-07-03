@@ -80,7 +80,7 @@ Una escuela administra alumnos y materias
 
 6. La relacion se llama **INSCRIBE**
 
-![Escuela](../img/E-R/Ejercicio%203.jpg)
+![Escuela](../img/E-R/Eje2_ER.jpg)
 
 # 4. EJERCICIO 4
 
