@@ -1154,6 +1154,6 @@ Catálogo operativo de proyectos institucionales de investigación o gestión t�
 | RN-05 | Los dependientes económicos no pueden persistir en el sistema de seguros si el profesor titular es dado de baja. |
 | RN-06 | Un proyecto puede operar con un presupuesto asignado el cual debe ser un monto financiero definido. |
 
-## Modelo Relacional
+## Modelo Relacional.
 
 ![Escuela](/img/Relacional/Eje7-RE.jpg)
