@@ -54,7 +54,7 @@ Se debe realizar lo siguiente:
 - Determinar la cardinalidad
 - Determinar la participación
 
-![Escuela](../img/E-R/Ejercicio%202.drawio.png)
+![Escuela](../img/E-R/Eje2_ER.jpg)
 
 # 3. Ejercicio 3
  
@@ -113,3 +113,56 @@ Una empresa encargada de realizar venta de productos.
     - Cantidad 
     - Precio de venta
 
+![Empresa](../img/E-R/Ej4-E-R.jpg)
+
+# 5. EJERCICIO 5
+
+Una empresa administra la información de sus empleados, departamentos, proyectos y dependientes.
+
+> De cada empleado se almacena:
+- Número de Seguro Social (SSN)
+- Nombre (Nombre y Apellido)
+- Dirección
+- Fecha de nacimiento
+- Sexo
+- Salario
+
+> De cada departamento se almacena:
+- Número del departamento
+- Nombre
+- Una o varias ubicaciones
+
+> La empresa administra proyectos de los cuales registra:
+- Número del proyecto
+- Nombre
+- Ubicación
+
+> También registra los dependientes de cada empleado, almacenando:
+- Nombre
+- Sexo
+- Fecha de nacimiento
+- Parentesco
+
+> Además, la empresa registra:
+- La fecha en que un empleado comienza a administrar un departamento.
+- Las horas que un empleado trabaja en un proyecto.
+
+> Reglas del negocio
+
+1. Un empleado trabaja para un solo departamento.
+2. Un departamento puede tener muchos empleados.
+3. Cada departamento es administrado por un solo empleado.
+4. Un empleado puede administrar como máximo un departamento.
+5. Se registra la fecha en que inicia la administración del departamento.
+6. Un departamento controla uno o varios proyectos.
+7. Cada proyecto pertenece a un solo departamento.
+8. Un empleado puede trabajar en varios proyectos.
+9. Un proyecto puede tener asignados varios empleados.
+10. Para cada asignación de un empleado a un proyecto se registran las horas trabajadas.
+11. Un empleado puede tener varios dependientes.
+12. Cada dependiente pertenece únicamente a un empleado.
+13. Un dependiente no puede existir sin un empleado asociado.
+14. Un departamento puede existir antes de tener empleados asignados.
+15. Un proyecto debe estar controlado por un departamento.
+
+![Company](../img/E-R/Ej5-ER.jpg)
