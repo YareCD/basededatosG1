@@ -94,3 +94,13 @@ Generalmente se combina con:
 - uq_cliente_correo_electronico
 - ck_producto_precio
 - df_cliente_activo
+
+## Alter Table 
+
+Permite modificar una tabla existente
+
+- Agregar columnas 
+- Eliminar columnas
+- Modificar columnas
+- Agregar restricciones
+- Eliminar restricciones
