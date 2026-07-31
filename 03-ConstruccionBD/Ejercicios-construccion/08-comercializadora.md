@@ -128,4 +128,4 @@ GO
 
 ## DIAGRAMA FINAL
 
-![ejecicio8](../../img/construccion/08-comercializadora.jpg)
+![Comercializadora](../../img/construccion/08-comercializadora.jpg)
