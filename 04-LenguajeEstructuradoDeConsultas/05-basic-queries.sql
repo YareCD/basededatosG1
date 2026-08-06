@@ -145,3 +145,29 @@ FROM productos AS p;
 	/ division
 	% modulo - residuo de la división
 */
+
+SELECT 
+	e.nombre,
+	e.apellido_paterno,
+	e.salario AS salario_anual
+
+FROM empleados AS e;
+GO
+
+-- seleccionar el detalle de las ventas, mostrando 
+-- numero de venta, cantidad vendida, precio, descuento
+-- calcular el importe bruto (cantidad*precio)
+-- calcular el importe con descuento (importe_bruto*descuento/100)
+-- calcular el importe neto, (importe bruto * 1 menos el descuento / 100)
+
+SELECT 
+	dv.id_venta AS #venta,
+	dv.cantidad AS cantidad_vendida,
+	dv.precio AS [precio de venta],
+	dv.descuento AS 'descuento de venta',
+	(dv.cantidad * dv.precio) AS importe_bruto,
+	((dv.cantidad * dv.precio)/100.0) AS importe_descuento,
+	dv.cantidad * dv.precio * (1 - descuento /100) AS importe_neto
+
+FROM detalle_ventas AS dv;
+GO
