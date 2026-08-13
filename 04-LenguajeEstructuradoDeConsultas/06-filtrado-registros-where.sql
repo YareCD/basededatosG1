@@ -6,16 +6,39 @@ Archivo: 06-filtrado.registros.where.sql
 Descripcion: Se recuperan unicamente las filas que cumplen determinadas 
 condiciones mendiante la clausula where
 
-ORDEN DE EJECUCIÓN:
+ORDER DE EJECUCIÓN:
++ FROM / JOINS
++ WHERE
++ GROUP BY
++ HAVING
++ DISTINCT
++ ORDER BY
++ TOP
 
-FROM ( JOINS (INNER, LEFT, RIGHT))
+ORDEN SINTÁCTICO
+
+SELECT
+FROM
+JOIN/ON (INNER, LEFT RIGHT CROSS FULL SELF)
 WHERE
 GROUP BY
 HAVING
-SELECT
-DISTINCT
 ORDER BY
-TOP
+
+OPERADORES RELACIONALES
+
+= Igual que
+< Menor que
+> Mayor que
+<= Menor o igual que
+>= Mayor o igual que
+<> Diferente que
+!= Diferente que (menos utilizado)
+
+OPERADORES LÓGICOS
+NOT
+AND
+OR
 
 ========================================================================*/
 
@@ -275,3 +298,176 @@ SELECT TOP (10) PERCENT
 	dv.cantidad,
 	dv.descuento
 FROM detalle_ventas AS dv;
+
+-- Mostrar los productos con precio que estén entre $200 y $300
+
+SELECT
+	p.codigo AS [codigo_producto],
+	p.existencia AS [existencia],
+	p.precio AS [precio],
+	p.existencia * p.precio AS [valor_inventario]
+FROM productos AS p
+WHERE precio BETWEEN 200 AND 300;
+
+-- Mostrar los productos con precio que estén entre $200 y $300 que además tengan menos de 50 u.
+
+SELECT
+	p.codigo AS [codigo_producto],
+	p.existencia AS [existencia],
+	p.precio AS [precio],
+	p.existencia * p.precio AS [valor_inventario]
+FROM productos AS p
+WHERE (p.precio >=200
+		AND
+		p.precio<=300)
+	AND (p.existencia<50)
+ORDER BY precio DESC;
+
+-- Mostrar productos con existencia <10 o superior a 190
+
+SELECT
+	p.codigo AS [codigo_producto],
+	p.existencia AS [existencia],
+	p.precio AS [precio],
+	p.existencia * p.precio AS [valor_inventario]
+FROM productos AS p
+WHERE p.existencia<10 
+	OR
+	p.existencia >190
+ORDER BY precio DESC;
+
+--NOT
+--Mostrar los productos que no sean mayores a 400
+SELECT
+	p.codigo AS [codigo_producto],
+	p.existencia AS [existencia],
+	p.precio AS [precio],
+	p.existencia * p.precio AS [valor_inventario]
+FROM productos AS p
+WHERE NOT p.existencia > 400
+ORDER BY precio DESC;
+
+SELECT
+	p.codigo AS [codigo_producto],
+	p.existencia AS [existencia],
+	p.precio AS [precio],
+	p.existencia * p.precio AS [valor_inventario]
+FROM productos AS p
+WHERE  p.existencia <= 400
+ORDER BY precio DESC;
+
+--Mostrar los empleados de los departamentos 1 o 2 que tengan salario mayor a 25,000
+
+SELECT
+	e.id_empleado,
+	e.nombre,
+	e.salario,
+	e.id_departamento
+FROM empleados as e
+WHERE	(e.id_departamento=1
+		OR
+		e.id_departamento=2)
+	AND
+	e.salario>25000
+ORDER BY e.id_departamento ASC;
+
+-- Mostrar los empleados que no tienen jefe
+SELECT
+	e.id_empleado,
+	e.nombre,
+	e.salario,
+	e.id_departamento
+FROM empleados as e
+WHERE  e.id_jefe IS NOT NULL;
+--NULL no se compara con un =, es con un IS
+
+
+--OPERADOR BETWEEN
+-- Permite comprobar si un valor se encuentra dentro de un rango inclusivo
+/*========================================================================
+WHERE columna BETWEEN limite_inferior AND limite_superior
+========================================================================*/
+
+-- Mostrar empleados con salario entre 15000 y 20,000 incluyendo ambos limites
+SELECT
+	e.id_empleado,
+	e.nombre,
+	e.salario
+FROM empleados as e
+WHERE salario BETWEEN 15000 AND 20000
+ORDER BY 3 DESC;
+
+-- Mostrar los productos que los precios estén en el rango de 100 y 200
+SELECT
+	p.codigo,
+	p.nombre,
+	p.precio,
+	p.existencia
+FROM productos AS p
+WHERE p.precio BETWEEN 100 AND 200;
+-- Mostrar las ventas del 1 de enero de 2025 al 10 de enero de 2025
+SELECT
+	v.id_venta AS [numero_venta],
+	v.id_cliente AS [cliente],
+	v.id_empleado AS [vendedor],
+	v.fecha AS [fecha_venta],
+	UPPER (FORMAT(v.fecha,'MMMM','es-ES')) AS [mes_venta],
+	UPPER (FORMAT (v.fecha, 'dddd', 'es-ES')) AS [dia_venta],
+	DATEPART(YEAR,v.fecha) AS [año_venta]
+FROM ventas AS v
+WHERE v.fecha BETWEEN '2025-01-01' AND '2025-01-10'
+ORDER BY [cliente] ASC;
+
+-- Mostrar los productos que su rango de precios no estén entre 100 y 400
+SELECT
+	p.codigo,
+	p.nombre,
+	p.precio,
+	p.existencia
+FROM productos AS p
+WHERE p.precio NOT BETWEEN 100 AND 400
+ORDER BY precio ASC;
+
+
+--OPERADOR IN
+-- Permite comparar una columna con una lista de valores
+
+/*========================================================================
+WHERE columna IN (valor_1, valor_2, valor_3)
+========================================================================*/
+
+-- Mostrar productos pertenecientes a las categorías 1,7 o 12
+SELECT
+	p.codigo,
+	p.nombre,
+	p.precio,
+	p.existencia,
+	p.id_categoria
+FROM productos AS p
+WHERE p.id_categoria IN (1,7,12)
+ORDER BY p.id_categoria ASC;
+
+SELECT
+	p.codigo,
+	p.nombre,
+	p.precio,
+	p.existencia,
+	p.id_categoria
+FROM productos AS p
+WHERE p.id_categoria =1 
+	OR
+	p.id_categoria =7
+	OR
+	p.id_categoria =12
+ORDER BY p.id_categoria ASC;
+
+-- Mostrar productos no pertenecientes a las categorías 1,7 o 12
+SELECT
+	p.codigo,
+	p.nombre,
+	p.precio,
+	p.existencia,
+	p.id_categoria
+FROM productos AS p
+WHERE p.id_categoria NOT IN (1,7,12)
+ORDER BY p.id_categoria ASC;
